@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
  * @author RD
  */
 @Configuration
-@Import(DatabaseConfig.class)
+//@Import(DatabaseConfig.class)
 @ComponentScan(basePackages = { "com.ad.core.user.service", "com.ad.core.user.dao", "com.ad.core.user.util" })
 public class RootConfig {
 

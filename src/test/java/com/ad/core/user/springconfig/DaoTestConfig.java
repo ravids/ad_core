@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(DatabaseConfig.class)
-@ComponentScan(basePackages = { "com.ad.core.user.dao" })
+@ComponentScan(basePackages = { "com.ad.core.user.dao", "com.ad.core.user.domain" })
 public class DaoTestConfig {
 
 }
