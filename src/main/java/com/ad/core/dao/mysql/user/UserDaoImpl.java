@@ -1,5 +1,6 @@
-package com.ad.core.user.dao;
+package com.ad.core.dao.mysql.user;
 
+import com.ad.core.user.dao.UserDao;
 import com.ad.core.user.domain.Person;
 import com.ad.core.user.domain.User;
 import com.ad.core.user.exception.PersonNotFoundException;

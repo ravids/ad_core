@@ -1,4 +1,4 @@
-package com.ad.core.user.dao.fixture;
+package com.ad.dao.mysql.user.fixture;
 
 import com.ad.core.user.domain.Person;
 import com.ad.core.user.domain.User;

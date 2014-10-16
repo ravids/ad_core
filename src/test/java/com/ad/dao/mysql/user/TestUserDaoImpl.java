@@ -1,10 +1,8 @@
-package com.ad.core.user.dao;
+package com.ad.dao.mysql.user;
 
-import com.ad.core.user.dao.fixture.DaoImplTestFixture;
-import com.ad.core.user.domain.Person;
+import com.ad.dao.mysql.user.fixture.DaoImplTestFixture;
 import com.ad.core.user.domain.User;
-import com.ad.core.user.exception.PersonNotFoundException;
-import com.ad.core.user.springconfig.DaoTestConfig;
+import com.ad.dao.mysql.springconfig.DaoTestConfig;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +16,8 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+
+import com.ad.core.dao.mysql.user.UserDaoImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DaoTestConfig.class })
@@ -47,9 +47,8 @@ public class TestUserDaoImpl {
         DaoImplTestFixture f = new DaoImplTestFixture();
         User person = f.createUser();
 
-        // function not supported!? the generated key stuff...
         userDao.insert(person);
-        Integer id = 4;
+        Integer id = 5;
         assertEquals(person.getId(), id);
     }
 

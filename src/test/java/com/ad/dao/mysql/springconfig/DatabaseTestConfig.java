@@ -1,4 +1,4 @@
-package com.ad.core.user.bootstrap;
+package com.ad.dao.mysql.springconfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +31,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @PropertySource("jdbc.properties")
 @ComponentScan("com.ad.core.user.domain")
-public class DatabaseConfig {
+public class DatabaseTestConfig {
 
     @Autowired
     Environment env;

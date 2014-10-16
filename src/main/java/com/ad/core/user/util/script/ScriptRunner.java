@@ -1,4 +1,4 @@
-package com.ad.core.user.bootstrap.sql;
+package com.ad.core.user.util.script;
 
 /*
  * Slightly modified version of the com.ibatis.common.jdbc.ScriptRunner class
