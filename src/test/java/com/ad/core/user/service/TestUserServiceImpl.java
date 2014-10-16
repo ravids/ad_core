@@ -1,8 +1,6 @@
 package com.ad.core.user.service;
 
-import com.ad.core.user.dao.PersonDao;
 import com.ad.core.user.dao.UserDao;
-import com.ad.core.user.domain.Person;
 import com.ad.core.user.domain.User;
 import com.ad.core.user.service.fixture.ServiceTestFixture;
 import com.ad.core.user.springconfig.ServiceTestConfig;
@@ -21,28 +19,28 @@ import static org.mockito.Mockito.*;
 @ContextConfiguration(classes = { ServiceTestConfig.class })
 public class TestUserServiceImpl {
 
-	@Autowired private UserService personService;
-	@Autowired private UserDao mockPersonDao;
+	@Autowired private UserService userService;
+	@Autowired private UserDao mockuserDao;
 
 	@Test
-	public void test_getPersonById() {
+	public void test_getuserById() {
 		ServiceTestFixture f = new ServiceTestFixture();
-		User personExists = f.createUser();
+		User userExists = f.createUser();
 
-		when(mockPersonDao.findById(anyInt())).thenReturn(personExists);
+		when(mockuserDao.findById(anyInt())).thenReturn(userExists);
 
-		User personFound = personService.getPersonById(personExists.getId());
+		User userFound = userService.getuserById(userExists.getId());
 
-		assertEquals(personExists.getId(), personFound.getId());
-		assertEquals(personExists, personFound);
+		assertEquals(userExists.getId(), userFound.getId());
+		assertEquals(userExists, userFound);
 	}
 
 
     @Test
-    public void test_savePerson() {
+    public void test_saveuser() {
         ServiceTestFixture f = new ServiceTestFixture();
-        User personExists = f.createUser();
-        personExists.setId(null);
+        User userExists = f.createUser();
+        userExists.setId(null);
 
         final Holder invokeCounter = new Holder(); // since we can't use verify() on void method
         doAnswer(new Answer<Object>() {
@@ -50,9 +48,9 @@ public class TestUserServiceImpl {
                 invokeCounter.value = invokeCounter.value + 1;
                 return null;
             }
-        }).when(mockPersonDao).insert((User) anyObject());
+        }).when(mockuserDao).insert((User) anyObject());
 
-        personService.saveUser(personExists);
+        userService.saveUser(userExists);
 
         assertEquals(1, invokeCounter.value);
     }

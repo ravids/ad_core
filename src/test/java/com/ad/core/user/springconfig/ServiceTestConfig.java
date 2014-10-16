@@ -1,6 +1,5 @@
 package com.ad.core.user.springconfig;
 
-import com.ad.core.user.dao.PersonDao;
 import com.ad.core.user.dao.UserDao;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
@@ -15,11 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(basePackages = { "com.ad.core.user.service" })
 public class ServiceTestConfig {
-
-	@Bean
-	public PersonDao mockPersonDao() {
-		return Mockito.mock(PersonDao.class);
-	}
 
     @Bean
     public UserDao mockUserDao() {

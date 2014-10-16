@@ -6,8 +6,8 @@ create table user (
 	last_name varchar(255)
 );
 
-insert into user (user_name, first_name, last_name) values ('sdfsf', 'rav', 'sil');
-insert into user (user_name, first_name, last_name) values ('joeherbers', 'Joe', 'Herbers');
+insert into user (user_name, first_name, last_name) values ('trffd333h', 'rrr', 'Howard');
+insert into user (user_name, first_name, last_name) values ('jdf', 'jjj', 'Herfs');
 insert into user (user_name, first_name, last_name) values ('jdoe', 'John', 'Doe');
 
 select * from user;

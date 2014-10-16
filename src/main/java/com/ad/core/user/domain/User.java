@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author RD
  */
 @Entity
-@Table(name = "person")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue
@@ -55,7 +55,7 @@ public class User {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Person [id=").append(id).append(", userName=").append(userName).append(", firstName=")
+		builder.append("user [id=").append(id).append(", userName=").append(userName).append(", firstName=")
 				.append(firstName).append(", lastName=").append(lastName).append("]");
 		return builder.toString();
 	}

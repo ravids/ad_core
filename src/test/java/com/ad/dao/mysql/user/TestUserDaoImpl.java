@@ -45,11 +45,11 @@ public class TestUserDaoImpl {
     @Test
     public void test_insert() {
         DaoImplTestFixture f = new DaoImplTestFixture();
-        User person = f.createUser();
+        User user = f.createUser();
 
-        userDao.insert(person);
-        Integer id = 5;
-        assertEquals(person.getId(), id);
+        userDao.insert(user);
+        Integer id = 4;
+        assertEquals(user.getId(), id);
     }
 
 

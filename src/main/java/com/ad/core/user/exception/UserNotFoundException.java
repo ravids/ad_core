@@ -5,23 +5,23 @@ package com.ad.core.user.exception;
  * 
  * @author RD
  */
-public class PersonNotFoundException extends RuntimeException {
+public class UserNotFoundException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public PersonNotFoundException() {
+	public UserNotFoundException() {
 		super();
 	}
 
-	public PersonNotFoundException(String message, Throwable cause) {
+	public UserNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public PersonNotFoundException(String message) {
+	public UserNotFoundException(String message) {
 		super(message);
 	}
 
-	public PersonNotFoundException(Throwable cause) {
+	public UserNotFoundException(Throwable cause) {
 		super(cause);
 	}
 

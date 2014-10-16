@@ -47,16 +47,8 @@ public class DatabaseTestConfig {
 
     @Bean
     public DataSource dataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName(env.getProperty("jdbc.driver"));
-//        dataSource.setUrl(env.getProperty("jdbc.url"));
-//        dataSource.setUsername(env.getProperty("jdbc.username"));
-//        dataSource.setPassword(env.getProperty("jdbc.password"));
-
-        // dataSource.addScript("classpath:init.sql").build();
-
 		DataSource dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:person.sql").build();
+				.addScript("classpath:user.sql").build();
 
         return dataSource;
     }
@@ -73,11 +65,6 @@ public class DatabaseTestConfig {
     public PlatformTransactionManager txManager() {
         return new DataSourceTransactionManager(dataSource());
     }
-//
-//    @Bean
-//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-//        return new PersistenceExceptionTranslationPostProcessor();
-//    }
 
 
     Properties hibernateProperties() {
