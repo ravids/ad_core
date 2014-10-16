@@ -41,7 +41,17 @@ public class TestUserDaoImpl {
 		Integer id = -1;
         assertNull(userDao.findById(id));
 	}
-	
+
+    @Test
+    public void test_insert() {
+        DaoImplTestFixture f = new DaoImplTestFixture();
+        User person = f.createUser();
+
+        // function not supported!? the generated key stuff...
+        userDao.insert(person);
+        Integer id = 4;
+        assertEquals(person.getId(), id);
+    }
 
 
 }

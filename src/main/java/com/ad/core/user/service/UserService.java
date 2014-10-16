@@ -16,5 +16,9 @@ public interface UserService {
 	 */
 	public User getPersonById(Integer id);
 
-
+    /**
+     * Creates a new Person and populates the <code>id</code> property with the generated id.
+     * @param person All non-id properties are used to create the new person.
+     */
+    public void saveUser(User person);
 }

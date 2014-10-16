@@ -24,5 +24,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+    @Transactional
+    public void saveUser(User person) {
+        personDao.insert(person);
+        System.out.println("after save in service : user id's = " + person.getId());
+    }
 
 }

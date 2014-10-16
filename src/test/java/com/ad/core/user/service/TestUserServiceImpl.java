@@ -38,6 +38,25 @@ public class TestUserServiceImpl {
 	}
 
 
+    @Test
+    public void test_savePerson() {
+        ServiceTestFixture f = new ServiceTestFixture();
+        User personExists = f.createUser();
+        personExists.setId(null);
+
+        final Holder invokeCounter = new Holder(); // since we can't use verify() on void method
+        doAnswer(new Answer<Object>() {
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                invokeCounter.value = invokeCounter.value + 1;
+                return null;
+            }
+        }).when(mockPersonDao).insert((User) anyObject());
+
+        personService.saveUser(personExists);
+
+        assertEquals(1, invokeCounter.value);
+    }
+
 	private class Holder {
 		public int value = 0;
 	}

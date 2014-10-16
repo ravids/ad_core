@@ -1,6 +1,7 @@
 package com.ad.core.user.dao.fixture;
 
 import com.ad.core.user.domain.Person;
+import com.ad.core.user.domain.User;
 
 /**
  * Test fixture for unit tests.
@@ -21,5 +22,18 @@ public class DaoImplTestFixture {
 		person.setLastName("silva");
 		return person;
 	}
+
+    /**
+     * Creates a Person with id=1
+     * @return
+     */
+    public User createUser() {
+        User person = new User();
+        person.setId(1);
+        person.setUserName("ravi123");
+        person.setFirstName("ravi");
+        person.setLastName("silva");
+        return person;
+    }
 
 }

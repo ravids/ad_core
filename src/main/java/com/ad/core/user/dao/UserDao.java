@@ -17,4 +17,16 @@ public interface UserDao {
 	 */
     User findById(Integer id);
 
+    /**
+     * Inserts a person record using the non-id properties.
+     * The id property is populated with the generated id.
+     * @param person
+     */
+    void insert(User person);
+
+    /**
+     * Updates the person record with p.getId().
+     * @param p
+     */
+    void update(User p);
 }
