@@ -1,7 +1,7 @@
-package com.ad.dao.mysql.user;
+package com.ad.core.dao.sql.user;
 
-import com.ad.dao.mysql.user.fixture.DaoImplTestFixture;
-import com.ad.core.user.domain.User;
+import com.ad.core.dao.sql.user.fixture.DaoImplTestFixture;
+import com.ad.core.model.user.domain.User;
 import com.ad.dao.mysql.springconfig.DaoTestConfig;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import org.junit.Test;
@@ -16,8 +16,6 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-
-import com.ad.core.dao.mysql.user.UserDaoImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DaoTestConfig.class })

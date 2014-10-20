@@ -1,6 +1,6 @@
-package com.ad.dao.mysql.user.fixture;
+package com.ad.core.dao.sql.user.fixture;
 
-import com.ad.core.user.domain.User;
+import com.ad.core.model.user.domain.User;
 
 /**
  * Test fixture for unit tests.

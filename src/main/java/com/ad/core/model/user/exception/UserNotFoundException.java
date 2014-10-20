@@ -1,4 +1,4 @@
-package com.ad.core.user.exception;
+package com.ad.core.model.user.exception;
 
 /**
  * Thrown when performing an operatoin on a user that does not exist.

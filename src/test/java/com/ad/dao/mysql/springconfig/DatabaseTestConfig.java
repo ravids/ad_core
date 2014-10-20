@@ -30,7 +30,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("jdbc.properties")
-@ComponentScan("com.ad.core.user.domain")
+@ComponentScan("com.ad.core.model.user.domain")
 public class DatabaseTestConfig {
 
     @Autowired
@@ -40,7 +40,7 @@ public class DatabaseTestConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.user.domain" });
+        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.model.user.domain" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

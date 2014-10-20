@@ -1,6 +1,6 @@
-package com.ad.core.user.service.fixture;
+package com.ad.core.model.user.service.fixture;
 
-import com.ad.core.user.domain.User;
+import com.ad.core.model.user.domain.User;
 
 /**
  * Test fixture for unit tests.

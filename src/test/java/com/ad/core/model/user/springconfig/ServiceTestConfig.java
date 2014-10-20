@@ -1,6 +1,6 @@
-package com.ad.core.user.springconfig;
+package com.ad.core.model.user.springconfig;
 
-import com.ad.core.user.dao.UserDao;
+import com.ad.core.model.user.dao.UserDao;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @author RD
  */
 @Configuration
-@ComponentScan(basePackages = { "com.ad.core.user.service" })
+@ComponentScan(basePackages = { "com.ad.core.model.user.service" })
 public class ServiceTestConfig {
 
     @Bean

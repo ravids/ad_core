@@ -1,6 +1,6 @@
-package com.ad.core.user.dao;
+package com.ad.core.model.user.dao;
 
-import com.ad.core.user.domain.User;
+import com.ad.core.model.user.domain.User;
 
 /**
  * DAO for user database table.

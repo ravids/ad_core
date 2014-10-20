@@ -1,4 +1,4 @@
-package com.ad.core.user.domain;
+package com.ad.core.model.user.domain;
 
 import javax.persistence.*;
 

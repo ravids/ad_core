@@ -1,7 +1,7 @@
-package com.ad.core.user.service;
+package com.ad.core.model.user.service;
 
-import com.ad.core.user.dao.UserDao;
-import com.ad.core.user.domain.User;
+import com.ad.core.model.user.dao.UserDao;
+import com.ad.core.model.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
-	public User getuserById(Integer id) {
+	public User getUserById(Integer id) {
 		return userDao.findById(id);
 	}
 

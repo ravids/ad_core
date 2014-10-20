@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(DatabaseTestConfig.class)
-@ComponentScan(basePackages = { "com.ad.core.user.dao", "com.ad.core.dao.mysql.*", "com.ad.core.user.domain" })
+@ComponentScan(basePackages = { "com.ad.core.model.user.dao", "com.ad.core.dao.sql.*", "com.ad.core.model.user.domain" })
 public class DaoTestConfig {
 
 }

@@ -1,9 +1,9 @@
-package com.ad.core.user.service;
+package com.ad.core.model.user.service;
 
-import com.ad.core.user.dao.UserDao;
-import com.ad.core.user.domain.User;
-import com.ad.core.user.service.fixture.ServiceTestFixture;
-import com.ad.core.user.springconfig.ServiceTestConfig;
+import com.ad.core.model.user.dao.UserDao;
+import com.ad.core.model.user.domain.User;
+import com.ad.core.model.user.service.fixture.ServiceTestFixture;
+import com.ad.core.model.user.springconfig.ServiceTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.invocation.InvocationOnMock;
@@ -29,7 +29,7 @@ public class TestUserServiceImpl {
 
 		when(mockuserDao.findById(anyInt())).thenReturn(userExists);
 
-		User userFound = userService.getuserById(userExists.getId());
+		User userFound = userService.getUserById(userExists.getId());
 
 		assertEquals(userExists.getId(), userFound.getId());
 		assertEquals(userExists, userFound);
