@@ -35,7 +35,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("jdbc.properties")
-@ComponentScan("com.ad.core.model.user.domain")
+@ComponentScan({"com.ad.core.model.user.domain", "com.ad.core.model.company.domain"})
 public class DatabaseTestConfig {
 
     @Autowired
@@ -45,7 +45,7 @@ public class DatabaseTestConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.ad.core.model.user.domain" });
+        em.setPackagesToScan(new String[] { "com.ad.core.model.user.domain", "com.ad.core.model.company.domain" });
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -58,15 +58,18 @@ public class DatabaseTestConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.model.user.domain" });
+        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.model.user.domain", "com.ad.core.model.company.domain" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
 
     @Bean
     public DataSource dataSource() {
-		DataSource dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:user.sql").build();
+		DataSource dataSource = new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.HSQL)
+				.addScript("classpath:user.sql")
+                .addScript("classpath:schemaDump.sql")
+                .build();
 
         return dataSource;
     }

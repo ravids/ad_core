@@ -28,4 +28,5 @@ public interface CompanyDao {
      * @param p
      */
     void update(Company p);
+
 }
