@@ -1,6 +1,6 @@
 package com.ad.core.dao.sql.company;
 
-import com.ad.core.dao.hibernate.DaoAbstract;
+//import com.ad.core.dao.hibernate.DaoAbstract;
 import com.ad.core.model.company.dao.CompanyCourseDao;
 import com.ad.core.model.company.domain.CompanyCourse;
 import org.hibernate.HibernateException;

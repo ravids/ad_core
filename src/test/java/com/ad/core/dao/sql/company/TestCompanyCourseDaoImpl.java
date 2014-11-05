@@ -43,7 +43,7 @@ public class TestCompanyCourseDaoImpl {
                 .setCoCourseName("coCourseName")
                 .setCompanyId(1231);
 
-        companyCourseDao.save(companyCourse);
+//        companyCourseDao.save(companyCourse);
    //     Integer id = 1;
     //    assertEquals(user.getId(), id);
     }
