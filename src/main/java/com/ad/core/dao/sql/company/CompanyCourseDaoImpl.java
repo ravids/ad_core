@@ -48,14 +48,14 @@ public class CompanyCourseDaoImpl implements CompanyCourseDao {
                 .createQuery(hsql)
                 .setParameter("companyId", companyId)
                 .setParameter("coCourseId", coCourseId);
-        List<CompanyCourse> courses = query.list();
-        if (courses.size() > 0) {
-            CompanyCourse course = (CompanyCourse) courses.iterator().next();
-            logger.info("company course found:" + course.toString(), course);
-            return course;
-        } else {
-            return null;
+        CompanyCourse course = (CompanyCourse) query.uniqueResult();
+
+        if (course == null) {
+            logger.info("company course NOT found for companyID::" + companyId
+                    + " and cocourseId:: " +  coCourseId);
         }
+
+        return course;
     }
 
     @Override

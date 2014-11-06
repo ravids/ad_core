@@ -1,7 +1,7 @@
-package com.ad.core.dao.sql.base;
+package com.ad.core.dao.sql.lesson;
 
-import com.ad.core.model.base.dao.LessonDao;
-import com.ad.core.model.base.domain.Lesson;
+import com.ad.core.model.lesson.dao.LessonDao;
+import com.ad.core.model.lesson.domain.Lesson;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.WebApplicationInitializer;
-
-import java.util.List;
 
 /**
  * Created by mnavarro on 05/11/2014.
@@ -40,21 +38,16 @@ public class LessonDaoImpl implements LessonDao {
 
     @Override
     public Lesson findByCourseIdAndLessonCode(Integer courseId, String lessonCode) {
-        // TODO: This does not work yet. Please revise.
-        String hsql = "from com.ad.core.model.base.domain.Lesson "
+        String hsql = "from Lesson "
                 + " where courseId = :courseId"
                 + " and lessonCode = :lessonCode";
         Query query = getCurrentSession()
                 .createQuery(hsql)
                 .setParameter("courseId", courseId)
                 .setParameter("lessonCode", lessonCode);
-        List<Lesson> lessons = query.list();
-        if (lessons.size() > 0) {
-            Lesson lesson = (Lesson) lessons.iterator().next();
-            logger.info("category lesson found:" + lesson.toString(), lesson);
-            return lesson;
-        } else {
-            return null;
-        }
+        Lesson lesson = (Lesson) query.uniqueResult();
+        if (lesson == null)
+            logger.info("category lesson NOT found for courseId: " + courseId + "and lessonCode:: " + lessonCode);
+        return lesson;
     }
 }

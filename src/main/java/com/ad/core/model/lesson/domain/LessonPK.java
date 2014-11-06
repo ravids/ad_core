@@ -1,4 +1,4 @@
-package com.ad.core.model.base.domain;
+package com.ad.core.model.lesson.domain;
 
 import java.io.Serializable;
 

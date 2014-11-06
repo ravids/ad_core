@@ -35,9 +35,10 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("jdbc.properties")
-@ComponentScan({"com.ad.core.model.user.domain", "com.ad.core.model.company.domain"})
+@ComponentScan({"com.ad.core.model.user.domain", "com.ad.core.model.company.domain" })
 public class DatabaseTestConfig {
 
+    public static final String[] PACKAGES_TO_SCAN = new String[]{"com.ad.core.model.user.domain", "com.ad.core.model.company.domain", "com.ad.core.model.lesson.domain"};
     @Autowired
     Environment env;
 
@@ -45,7 +46,7 @@ public class DatabaseTestConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.ad.core.model.user.domain", "com.ad.core.model.company.domain" });
+        em.setPackagesToScan(PACKAGES_TO_SCAN);
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -58,7 +59,7 @@ public class DatabaseTestConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.model.user.domain", "com.ad.core.model.company.domain" });
+        sessionFactory.setPackagesToScan(PACKAGES_TO_SCAN);
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

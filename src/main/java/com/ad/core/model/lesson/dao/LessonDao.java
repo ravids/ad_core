@@ -1,6 +1,6 @@
-package com.ad.core.model.base.dao;
+package com.ad.core.model.lesson.dao;
 
-import com.ad.core.model.base.domain.Lesson;
+import com.ad.core.model.lesson.domain.Lesson;
 
 /**
  * Created by mnavarro on 05/11/2014.

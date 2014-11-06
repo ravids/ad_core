@@ -1,6 +1,7 @@
-package com.ad.core.dao.sql.base;
+package com.ad.core.dao.sql.lesson;
 
-import com.ad.core.model.base.dao.LessonDao;
+import com.ad.core.model.lesson.dao.LessonDao;
+import com.ad.core.model.lesson.domain.Lesson;
 import com.ad.dao.mysql.springconfig.DaoTestConfig;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import org.junit.Test;
@@ -12,6 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by mnavarro on 05/11/2014.
@@ -29,8 +32,7 @@ public class TestLessonDaoImpl {
 
     @Test
     public void test_findByCourseIdAndLessonCode() {
-        // TODO: Need to double check this because it's not working!
-//        Lesson lesson = lessonDao.findByCourseIdAndLessonCode(1, "ABC");
-//        assertTrue(lesson.getLanguageTypeId().equals(1));
+        Lesson lesson = lessonDao.findByCourseIdAndLessonCode(3, "ABC");
+        assertTrue(lesson.getLanguageTypeId().equals(1));
     }
 }
