@@ -68,7 +68,7 @@ public class DatabaseTestConfig {
 		DataSource dataSource = new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.HSQL)
 				.addScript("classpath:user.sql")
-               // .addScript("classpath:schemaDump.sql")
+               .addScript("classpath:schemaDump.sql")
                 .build();
 
         return dataSource;

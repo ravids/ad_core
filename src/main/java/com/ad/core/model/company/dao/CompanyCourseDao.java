@@ -7,5 +7,7 @@ import com.ad.core.model.company.domain.CompanyCourse;
  */
 public interface CompanyCourseDao {
 
+    CompanyCourse findByCompanyIdAndCoCourseId(Integer companyId, Integer coCourseId);
+
     void save (CompanyCourse companyCourse);
 }

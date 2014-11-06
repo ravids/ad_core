@@ -1,7 +1,7 @@
-package com.ad.core.dao.sql.company;
+package com.ad.core.dao.sql.base;
 
-import com.ad.core.model.company.dao.CompanyCourseDao;
-import com.ad.core.model.company.domain.CompanyCourse;
+import com.ad.core.model.base.dao.LessonDao;
+import com.ad.core.model.base.domain.Lesson;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -16,11 +16,10 @@ import org.springframework.web.WebApplicationInitializer;
 import java.util.List;
 
 /**
- * Created by sabrishamkar on 11/4/14.
+ * Created by mnavarro on 05/11/2014.
  */
 @Repository
-public class CompanyCourseDaoImpl implements CompanyCourseDao {
-
+public class LessonDaoImpl implements LessonDao {
 
     protected static final Logger logger = LoggerFactory.getLogger(WebApplicationInitializer.class);
 
@@ -40,27 +39,22 @@ public class CompanyCourseDaoImpl implements CompanyCourseDao {
     }
 
     @Override
-    public CompanyCourse findByCompanyIdAndCoCourseId(Integer companyId, Integer coCourseId) {
-        String hsql = "from com.ad.core.model.company.domain.CompanyCourse cc"
-                        + " where cc.CompanyId = :companyId"
-                        + " and cc.CoCourseId = :coCourseId";
+    public Lesson findByCourseIdAndLessonCode(Integer courseId, String lessonCode) {
+        // TODO: This does not work yet. Please revise.
+        String hsql = "from com.ad.core.model.base.domain.Lesson "
+                + " where courseId = :courseId"
+                + " and lessonCode = :lessonCode";
         Query query = getCurrentSession()
                 .createQuery(hsql)
-                .setParameter("companyId", companyId)
-                .setParameter("coCourseId", coCourseId);
-        List<CompanyCourse> courses = query.list();
-        if (courses.size() > 0) {
-            CompanyCourse course = (CompanyCourse) courses.iterator().next();
-            logger.info("company course found:" + course.toString(), course);
-            return course;
+                .setParameter("courseId", courseId)
+                .setParameter("lessonCode", lessonCode);
+        List<Lesson> lessons = query.list();
+        if (lessons.size() > 0) {
+            Lesson lesson = (Lesson) lessons.iterator().next();
+            logger.info("category lesson found:" + lesson.toString(), lesson);
+            return lesson;
         } else {
             return null;
         }
-    }
-
-    @Override
-    public void save(CompanyCourse companyCourse) {
-        getCurrentSession().save(companyCourse);
-        logger.info("company course created::" , companyCourse);
     }
 }
