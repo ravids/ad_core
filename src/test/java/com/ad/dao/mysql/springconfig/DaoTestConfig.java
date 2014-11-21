@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
  * @author RD
  */
 @Configuration
-@Import(DatabaseTestConfig.class)
+@Import(PersistenceXmlConfig.class)
 @ComponentScan(basePackages = { "com.ad.core.model.user.dao", "com.ad.core.dao.sql.*", "com.ad.core.model.user.domain", "com.ad.core.model.company.dao", "com.ad.core.model.company.domain" })
 public class DaoTestConfig {
 

@@ -10,9 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.WebApplicationInitializer;
 
 @Repository
+@Transactional
 public class UserDaoImpl implements UserDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(WebApplicationInitializer.class);
@@ -27,21 +29,24 @@ public class UserDaoImpl implements UserDao {
         try {
             session = sessionFactory.getCurrentSession();
         } catch ( HibernateException he ) {
-            session = sessionFactory.openSession();
+            System.out.println(he.getMessage());
+           // session = sessionFactory.openSession();
         }
         return session;
     }
 
-
-	public User findById(Integer id) {
+    @Transactional
+    public User findById(Integer id) {
         return (User) getCurrentSession().get(User.class, id);
 	}
 
+    @Transactional
     public void insert(User user) {
         getCurrentSession().save(user);
         System.out.println("after save in dao : user id's = " + user.getId());
     }
 
+    @Transactional
     public void update(User user) {
         getCurrentSession().save(user);
     }

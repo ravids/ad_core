@@ -26,6 +26,8 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         userDao.insert(user);
         System.out.println("after save in service : user id's = " + user.getId());
+        user.setFirstName("raviya");
+        userDao.update(user);
     }
 
 }
