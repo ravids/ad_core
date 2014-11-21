@@ -1,14 +1,16 @@
 package com.ad.core.model.company.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by sabrishamkar on 11/4/14.
  */
 @Entity
-@Table(name = "CompanyCourse")
-public class CompanyCourse {
-
+@Table(name = "CompanyCourse",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"CompanyID", "CoCourseID"}))
+public class CompanyCourse implements Serializable
+{
     @Id
     @GeneratedValue
     @Column(name = "id")

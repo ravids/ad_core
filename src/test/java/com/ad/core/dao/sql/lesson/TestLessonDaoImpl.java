@@ -1,7 +1,7 @@
-package com.ad.core.dao.sql.company;
+package com.ad.core.dao.sql.lesson;
 
-import com.ad.core.model.company.dao.CompanyCourseDao;
-import com.ad.core.model.company.domain.CompanyCourse;
+import com.ad.core.model.lesson.dao.LessonDao;
+import com.ad.core.model.lesson.domain.Lesson;
 import com.ad.dao.mysql.springconfig.DaoTestConfig;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import org.junit.Test;
@@ -14,10 +14,10 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
- * Created by sabrishamkar on 11/4/14.
+ * Created by mnavarro on 05/11/2014.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DaoTestConfig.class })
@@ -25,24 +25,14 @@ import static org.junit.Assert.assertEquals;
         DirtiesContextTestExecutionListener.class,
         TransactionalTestExecutionListener.class,
         DbUnitTestExecutionListener.class })
-public class TestCompanyCourseDaoImpl {
-
+public class TestLessonDaoImpl {
 
     @Autowired
-    CompanyCourseDao courseDao;
+    private LessonDao lessonDao;
 
     @Test
-    public void test_save() {
-        CompanyCourse companyCourse = new CompanyCourse();
-        companyCourse.setCoCourseId(12)
-                .setCoCourseName("coCourseName")
-                .setCompanyId(1231);
-        courseDao.save(companyCourse);
-    }
-
-    @Test
-    public void test_findByCompanyIdAndCoCourseId() {
-        CompanyCourse course = courseDao.findByCompanyIdAndCoCourseId(410, 1);
-        assertEquals(course.getCourseId(), 3);
+    public void test_findByCourseIdAndLessonCode() {
+        Lesson lesson = lessonDao.findByCourseIdAndLessonCode(3, "ABC");
+        assertTrue(lesson.getLanguageTypeId().equals(1));
     }
 }
